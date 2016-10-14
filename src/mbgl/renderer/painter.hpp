@@ -9,6 +9,8 @@
 #include <mbgl/renderer/bucket.hpp>
 
 #include <mbgl/gl/context.hpp>
+#include <mbgl/gl/shader_parameters.hpp>
+
 #include <mbgl/shader/fill_vertex.hpp>
 #include <mbgl/shader/raster_vertex.hpp>
 
@@ -151,6 +153,8 @@ private:
     LineAtlas* lineAtlas = nullptr;
 
     FrameHistory frameHistory;
+    gl::ShaderParameters shaderParameters;
+    gl::ShaderParameters shaderParametersOverdraw;
 
     std::unique_ptr<Shaders> shaders;
 #ifndef NDEBUG
