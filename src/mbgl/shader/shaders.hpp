@@ -12,10 +12,12 @@
 #include <mbgl/shader/symbol_icon_shader.hpp>
 #include <mbgl/shader/symbol_sdf_shader.hpp>
 
+#include <mbgl/gl/shader_parameters.hpp>
 #include <mbgl/shader/collision_box_shader.hpp>
 
-namespace mbgl {
 
+
+namespace mbgl {
 class Shaders {
 public:
     Shaders(gl::Context& context, gl::ShaderParameters& shaderParameters)

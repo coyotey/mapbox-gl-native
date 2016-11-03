@@ -5,7 +5,7 @@ namespace gl {
 
 class ShaderParameters {
 public:
-    float pixelRatio;
+    float pixelRatio = 1.0;
     bool overdraw = false;
 };
 
