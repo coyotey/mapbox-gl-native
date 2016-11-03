@@ -10,7 +10,7 @@ class FillVertex;
 
 class FillPatternShader : public gl::Shader {
 public:
-    FillPatternShader(gl::Context&, Defines defines = None);
+    FillPatternShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = FillVertex;
     using UniformsType = FillPatternUniforms;

@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-CollisionBoxShader::CollisionBoxShader(gl::Context& context)
+CollisionBoxShader::CollisionBoxShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::collision_box::name,
              shaders::collision_box::vertex,
              shaders::collision_box::fragment,
-             context),
+             context, shaderParameters),
       uniformsState(CollisionBoxUniforms::state(*this))
 {
 }

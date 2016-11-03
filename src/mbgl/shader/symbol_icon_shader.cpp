@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-SymbolIconShader::SymbolIconShader(gl::Context& context, Defines defines)
+SymbolIconShader::SymbolIconShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::symbol_icon::name,
              shaders::symbol_icon::vertex,
              shaders::symbol_icon::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(SymbolIconUniforms::state(*this)) {
 }
 

@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-SymbolSDFShader::SymbolSDFShader(gl::Context& context, Defines defines)
+SymbolSDFShader::SymbolSDFShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::symbol_sdf::name,
              shaders::symbol_sdf::vertex,
              shaders::symbol_sdf::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(SymbolSDFUniforms::state(*this)) {
 }
 

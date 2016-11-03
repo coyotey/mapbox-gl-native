@@ -10,7 +10,7 @@ class SymbolVertex;
 
 class SymbolSDFShader : public gl::Shader {
 public:
-    SymbolSDFShader(gl::Context&, Defines defines = None);
+    SymbolSDFShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = SymbolVertex;
     using UniformsType = SymbolSDFUniforms;

@@ -10,7 +10,7 @@ class CollisionBoxVertex;
 
 class CollisionBoxShader : public gl::Shader {
 public:
-    CollisionBoxShader(gl::Context&);
+    CollisionBoxShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = CollisionBoxVertex;
     using UniformsType = CollisionBoxUniforms;

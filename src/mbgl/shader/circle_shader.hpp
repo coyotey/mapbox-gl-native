@@ -10,7 +10,7 @@ class CircleVertex;
 
 class CircleShader : public gl::Shader {
 public:
-    CircleShader(gl::Context&, Defines defines = None);
+    CircleShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = CircleVertex;
     using UniformsType = CircleUniforms;

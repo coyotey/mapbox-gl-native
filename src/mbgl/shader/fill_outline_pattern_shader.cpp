@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-FillOutlinePatternShader::FillOutlinePatternShader(gl::Context& context, Defines defines)
+FillOutlinePatternShader::FillOutlinePatternShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::fill_outline_pattern::name,
              shaders::fill_outline_pattern::vertex,
              shaders::fill_outline_pattern::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(FillPatternUniforms::state(*this)) {
 }
 

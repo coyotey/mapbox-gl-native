@@ -77,6 +77,7 @@ set(MBGL_CORE_FILES
     src/mbgl/gl/segment.hpp
     src/mbgl/gl/shader.cpp
     src/mbgl/gl/shader.hpp
+    src/mbgl/gl/shader_parameters.hpp
     src/mbgl/gl/state.hpp
     src/mbgl/gl/stencil_mode.cpp
     src/mbgl/gl/stencil_mode.hpp

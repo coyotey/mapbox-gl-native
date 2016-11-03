@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-RasterShader::RasterShader(gl::Context& context, Defines defines)
+RasterShader::RasterShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::raster::name,
              shaders::raster::vertex,
              shaders::raster::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(RasterUniforms::state(*this)) {
 }
 

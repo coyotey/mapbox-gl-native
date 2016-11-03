@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-CircleShader::CircleShader(gl::Context& context, Defines defines)
+CircleShader::CircleShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::circle::name,
              shaders::circle::vertex,
              shaders::circle::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(CircleUniforms::state(*this)) {
 }
 

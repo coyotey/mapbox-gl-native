@@ -10,7 +10,7 @@ class SymbolVertex;
 
 class SymbolIconShader : public gl::Shader {
 public:
-    SymbolIconShader(gl::Context&, Defines defines = None);
+    SymbolIconShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = SymbolVertex;
     using UniformsType = SymbolIconUniforms;

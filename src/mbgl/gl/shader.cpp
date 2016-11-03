@@ -21,24 +21,24 @@ Shader::Shader(const char* name_,
                const char* vertexSource,
                const char* fragmentSource,
                Context& context,
-               Defines defines)
+               gl::ShaderParameters& shaderParameters)
     : name(name_),
       program(context.createProgram()),
       vertexShader(context.createVertexShader()),
       fragmentShader(context.createFragmentShader()) {
     util::stopwatch stopwatch("shader compilation", Event::Shader);
-    
-//    std::string pixelRatioStr (std::to_string(view.getPixelRatio()));
-//    std::string definePixelRatio ("\n#define DEVICE_PIXEL_RATIO " + pixelRatioStr + "\n");
-//    fragment = definePixelRatio + fragment;
 
-    if (!compileShader(vertexShader, vertexSource)) {
+    std::string vertex(vertexSource);
+    vertex.replace(vertex.find_first_of('\n'), 1,"\n#define DEVICE_PIXEL_RATIO " + std::to_string(shaderParameters.pixelRatio) + "\n");
+    if (!compileShader(vertexShader, vertex.c_str())) {
         Log::Error(Event::Shader, "Vertex shader %s failed to compile: %s", name, vertexSource);
         throw util::ShaderException(std::string { "Vertex shader " } + name + " failed to compile");
     }
 
+
     std::string fragment(fragmentSource);
-    if (defines & Defines::Overdraw) {
+    fragment.replace(fragment.find_first_of('\n'), 1,"\n#define DEVICE_PIXEL_RATIO " + std::to_string(shaderParameters.pixelRatio) + "\n");
+    if (shaderParameters.overdraw) {
         assert(fragment.find("#ifdef OVERDRAW_INSPECTOR") != std::string::npos);
         fragment.replace(fragment.find_first_of('\n'), 1, "\n#define OVERDRAW_INSPECTOR\n");
     }

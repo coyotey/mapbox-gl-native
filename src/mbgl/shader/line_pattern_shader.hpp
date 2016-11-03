@@ -10,7 +10,7 @@ class LineVertex;
 
 class LinePatternShader : public gl::Shader {
 public:
-    LinePatternShader(gl::Context&, Defines defines = None);
+    LinePatternShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = LineVertex;
     using UniformsType = LinePatternUniforms;

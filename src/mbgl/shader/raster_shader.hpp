@@ -10,7 +10,7 @@ class RasterVertex;
 
 class RasterShader : public gl::Shader {
 public:
-    RasterShader(gl::Context&, Defines defines = None);
+    RasterShader(gl::Context&, gl::ShaderParameters&);
 
     using VertexType = RasterVertex;
     using UniformsType = RasterUniforms;

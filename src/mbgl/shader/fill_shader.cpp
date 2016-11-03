@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-FillShader::FillShader(gl::Context& context, Defines defines)
+FillShader::FillShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::fill::name,
              shaders::fill::vertex,
              shaders::fill::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(FillColorUniforms::state(*this)) {
 }
 

@@ -5,11 +5,11 @@
 
 namespace mbgl {
 
-LineShader::LineShader(gl::Context& context, Defines defines)
+LineShader::LineShader(gl::Context& context, gl::ShaderParameters& shaderParameters)
     : Shader(shaders::line::name,
              shaders::line::vertex,
              shaders::line::fragment,
-             context, defines),
+             context, shaderParameters),
       uniformsState(LineColorUniforms::state(*this)) {
 }
 

@@ -18,20 +18,20 @@ namespace mbgl {
 
 class Shaders {
 public:
-    Shaders(gl::Context& context, gl::Shader::Defines defines = gl::Shader::None)
-        : circle(context, defines),
-          fill(context, defines),
-          fillPattern(context, defines),
-          fillOutline(context, defines),
-          fillOutlinePattern(context, defines),
-          line(context, defines),
-          lineSDF(context, defines),
-          linePattern(context, defines),
-          raster(context, defines),
-          symbolIcon(context, defines),
-          symbolIconSDF(context, defines),
-          symbolGlyph(context, defines),
-          collisionBox(context) {
+    Shaders(gl::Context& context, gl::ShaderParameters& shaderParameters)
+        : circle(context, shaderParameters),
+          fill(context, shaderParameters),
+          fillPattern(context, shaderParameters),
+          fillOutline(context, shaderParameters),
+          fillOutlinePattern(context, shaderParameters),
+          line(context, shaderParameters),
+          lineSDF(context, shaderParameters),
+          linePattern(context, shaderParameters),
+          raster(context, shaderParameters),
+          symbolIcon(context, shaderParameters),
+          symbolIconSDF(context, shaderParameters),
+          symbolGlyph(context, shaderParameters),
+          collisionBox(context, shaderParameters) {
     }
 
     CircleShader circle;

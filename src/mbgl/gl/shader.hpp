@@ -3,6 +3,7 @@
 #include <mbgl/gl/types.hpp>
 #include <mbgl/gl/object.hpp>
 #include <mbgl/util/noncopyable.hpp>
+#include <mbgl/gl/shader_parameters.hpp>
 
 namespace mbgl {
 namespace gl {
@@ -31,7 +32,7 @@ protected:
            const char* vertex,
            const char* fragment,
            Context&,
-           Defines defines = Defines::None);
+           gl::ShaderParameters&);
 
 private:
     bool compileShader(UniqueShader&, const char *source);
