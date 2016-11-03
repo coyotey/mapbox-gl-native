@@ -15,7 +15,7 @@ class SpriteAtlasPosition;
 
 namespace uniforms {
 MBGL_DEFINE_UNIFORM_SCALAR(float, u_ratio);
-MBGL_DEFINE_UNIFORM_SCALAR(float, u_linewidth);
+MBGL_DEFINE_UNIFORM_SCALAR(float, u_width);
 MBGL_DEFINE_UNIFORM_SCALAR(float, u_gapwidth);
 MBGL_DEFINE_UNIFORM_SCALAR(float, u_antialiasing);
 MBGL_DEFINE_UNIFORM_SCALAR(float, u_extra);
@@ -32,7 +32,7 @@ MBGL_DEFINE_UNIFORM_MATRIX(double, 2, u_antialiasingmatrix);
 struct LineColorUniforms : gl::Uniforms<
     uniforms::u_matrix,
     uniforms::u_opacity,
-    uniforms::u_linewidth,
+    uniforms::u_width,
     uniforms::u_gapwidth,
     uniforms::u_blur,
     uniforms::u_offset,
@@ -51,7 +51,7 @@ struct LineColorUniforms : gl::Uniforms<
 struct LineSDFUniforms : gl::Uniforms<
     uniforms::u_matrix,
     uniforms::u_opacity,
-    uniforms::u_linewidth,
+    uniforms::u_width,
     uniforms::u_gapwidth,
     uniforms::u_blur,
     uniforms::u_offset,
@@ -81,7 +81,7 @@ struct LineSDFUniforms : gl::Uniforms<
 struct LinePatternUniforms : gl::Uniforms<
     uniforms::u_matrix,
     uniforms::u_opacity,
-    uniforms::u_linewidth,
+    uniforms::u_width,
     uniforms::u_gapwidth,
     uniforms::u_blur,
     uniforms::u_offset,
