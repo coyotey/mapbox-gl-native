@@ -67,15 +67,6 @@ Painter::Painter(gl::Context& context_, const TransformState& state_)
             { 0, util::EXTENT, 0, 32767 },
             { util::EXTENT, util::EXTENT, 32767, 32767 }
       }})) {
-#ifndef NDEBUG
-    gl::debugging::enable();
-#endif
-    shaderParameters = gl::ShaderParameters{ frame.pixelRatio, false };
-    shaders = std::make_unique<Shaders>(context, shaderParameters);
-#ifndef NDEBUG
-    shaderParametersOverdraw = gl::ShaderParameters{ frame.pixelRatio, true };
-    overdrawShaders = std::make_unique<Shaders>(context, shaderParametersOverdraw);
-#endif
 }
 
 Painter::~Painter() = default;
@@ -93,6 +84,17 @@ void Painter::render(const Style& style, const FrameData& frame_, View& view, Sp
     if (frame.contextMode == GLContextMode::Shared) {
         context.setDirtyState();
     }
+    
+    #ifndef NDEBUG
+        gl::debugging::enable();
+    #endif
+        shaderParameters = gl::ShaderParameters{ frame.pixelRatio, false };
+        shaders = std::make_unique<Shaders>(context, shaderParameters);
+    #ifndef NDEBUG
+        shaderParametersOverdraw = gl::ShaderParameters{ frame.pixelRatio, true };
+        overdrawShaders = std::make_unique<Shaders>(context, shaderParametersOverdraw);
+    #endif
+
 
     PaintParameters parameters {
 #ifndef NDEBUG

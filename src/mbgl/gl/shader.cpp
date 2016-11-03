@@ -37,7 +37,7 @@ Shader::Shader(const char* name_,
 
 
     std::string fragment(fragmentSource);
-    fragment.replace(fragment.find_first_of('\n'), 1,"\n#define DEVICE_PIXEL_RATIO " + std::to_string(shaderParameters.pixelRatio) + "\n");
+    fragment.replace(fragment.find_first_of('\n'), 1,"\n#define DEVICE_PIXEL_RATIO "+ std::to_string(shaderParameters.pixelRatio) + "\n");
     if ((strcmp(name, "collision_box") != 0) & shaderParameters.overdraw) {
         assert(fragment.find("#ifdef OVERDRAW_INSPECTOR") != std::string::npos);
         fragment.replace(fragment.find_first_of('\n'), 1, "\n#define OVERDRAW_INSPECTOR\n");
