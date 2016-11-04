@@ -12,7 +12,7 @@ addons_shortcuts:
   addons_gcc5: &gcc5
     apt:
       sources:  [ 'ubuntu-toolchain-r-test', 'george-edison55-precise-backports' ]
-      packages: [ 'gdb', 'g++-5', 'gcc-5', 'cmake', 'cmake-data',
+      packages: [ 'gdb', 'g++-5', 'gcc-5', 'libllvm3.8v4', 'cmake', 'cmake-data',
                   'mesa-utils', 'libxi-dev', 'libglu1-mesa-dev', 'x11proto-randr-dev', 'x11proto-xext-dev', 'libxrandr-dev',
                   'x11proto-xf86vidmode-dev', 'libxxf86vm-dev', 'libxcursor-dev', 'libxinerama-dev' ]
   addons_qt4: &qt4
@@ -76,10 +76,11 @@ matrix:
 
     # GCC 5 - Debug - Coverage
     - os: linux
-      sudo: false
+      sudo: required
+      dist: trusty
       language: cpp
       compiler: "glfw-gcc5-debug"
-      env: BUILDTYPE=Debug _CXX=g++-5 _CC=gcc-5 WITH_COVERAGE=1
+      env: BUILDTYPE=Debug _CXX=g++-5 _CC=gcc-5 WITH_OSMESA=1 WITH_COVERAGE=1
       addons: *gcc5
       after_script:
         - ccache --show-stats
